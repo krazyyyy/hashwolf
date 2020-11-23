@@ -1,0 +1,32 @@
+{% load static %}
+
+<div class="prod-box card">
+    <div class="prod-i">
+     <a href="{{ p.url }}">
+    <div class="card__background">
+     {% if p.image %}
+     <img src="{{ p.image }}" alt="">
+     {% else %}
+     <img src="{% static 'frontapp/images/150x150.png' %}" alt="" />
+     {% endif %}
+    </div>
+  </a>
+    </div>
+    <a href="{{ p.url }}">
+    <div class="prod-dit clearfix">
+       <div class="dit-t clearfix">
+          <div class="left-ti">
+             <h4 class="card__heading">{{ p.name | truncatewords:5}}</h4>
+             <p>By <span>{{p.brand}}</span></p>
+          </div>
+          
+
+       </div>
+    </a>
+    <div class="dit-btn clearfix">
+       <a style="font-weight: 900; color: blue;" href="#">${{ p.price }}</a>
+       <a class="card__catrgory" class="thi" href="#"><i class="fa fa-list-alt" aria-hidden="true"></i> <span class="product_category">{{p.category}}</span></a>
+    </div>
+
+    </div>
+ </div>

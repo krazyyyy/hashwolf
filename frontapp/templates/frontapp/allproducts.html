@@ -1,0 +1,47 @@
+{% extends 'frontapp/layout.html' %}
+{% load static %}
+{% block body %}
+<div class="main-product" style="background-image: url({% static 'frontapp/images/bg_img.jpg' %});">
+    <div class="container">
+       <div class="row clearfix">
+          <div class="find-box">
+             <h1>Find your next product or<br>business partner here.</h1>
+             <h4>It has never been easier.</h4>
+             <div class="product-sh">
+                <div class="col-sm-6">
+                   <div class="form-sh">
+                      <input onkeyup="searchFunction()" id="input_search" type="text" placeholder="Search something you love">
+                   </div>
+                </div>
+                
+                <div class="col-sm-3">
+                  <div class="form-sh">
+                     <select id="input_option" class="selectpicker">
+                        {% for c in cat %}
+                        <option value="{{c}}">{{c}}</option>
+                        {% endfor %}
+                     </select>
+                  </div>
+               </div>
+                <div class="col-sm-3">
+                   <div class="form-sh"> <a class="btn" href="#">Search</a> </div>
+                </div>
+                <p>Or simply<a href="#"> click here </a> and get inspired!</p>
+             </div>
+          </div>
+       </div>
+      
+         <div class="card-grid">
+            {% for p in product %}
+            {% include 'frontapp/item.html' %}
+               {% endfor %}
+
+         </div>
+      
+  
+         <div class="categories_link">
+             <a href="{% url 'index' %}">Back Home</a>
+          </div>
+       </div>
+    </div>
+{% endblock %}

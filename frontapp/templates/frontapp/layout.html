@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!--enable mobile device-->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!--fontawesome css-->
+      <link rel="stylesheet" href="{% static 'frontapp/css/font-awesome.min.css' %}">
+      <!--bootstrap css-->
+      <link rel="stylesheet" href="{% static 'frontapp/css/bootstrap.min.css' %}">
+      <!--animate css-->
+      <link rel="stylesheet" href="{% static 'frontapp/css/animate-wow.css' %}">
+      <!--main css-->
+      <link rel="stylesheet" href="{% static 'frontapp/css/style.css' %}">
+      <link rel="stylesheet" href="{% static 'frontapp/css/bootstrap-select.min.css' %}">
+      <link rel="stylesheet" href="{% static 'frontapp/css/slick.min.css' %}">
+      <link rel="stylesheet" href="{% static 'frontapp/css/select2.min.css' %}">
+      <!--responsive css-->
+      <link rel="icon" 
+      type="image/png" href="https://st2.depositphotos.com/3079665/10722/v/950/depositphotos_107220870-stock-illustration-wolf-head-mascot.jpg">
+      <link rel="stylesheet" href="{% static 'frontapp/css/responsive.css' %}">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+  
+    {% block body %}
+
+    {% endblock %}
+
+    {% include 'frontapp/footer.html' %}
+    <!--main js--> 
+    <script src="{% static 'frontapp/js/jquery-1.12.4.min.js' %}"></script> 
+    <!--bootstrap js--> 
+    <script src="{% static 'frontapp/js/bootstrap.min.js' %}"></script> 
+    <script src="{% static 'frontapp/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'frontapp/js/slick.min.js' %}"></script> 
+    <script src="{% static 'frontapp/js/wow.min.js' %}"></script>
+    <!--custom js--> 
+    <script src="{% static 'frontapp/js/custom.js' %}"></script>
+    <script src="{% static 'frontapp/js/index.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+</body>
+</html>
