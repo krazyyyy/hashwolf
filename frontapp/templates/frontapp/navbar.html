@@ -1,4 +1,4 @@
-
+{% load static %}
 <header>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -11,7 +11,7 @@
                 <span class="icon-bar"></span> 
                 <span class="icon-bar"></span> 
                 </button>
-                <a href="{% url 'index' %}" class="navbar-brand"><img src="images/logo.png" alt="" /></a>
+                <a href="{% url 'index' %}" class="navbar-brand"><img src="{% static 'frontapp/images/logo.png' %}" alt="" /></a>
              </div>
              <form class="navbar-form navbar-left web-sh">
                 <div class="form">
@@ -23,25 +23,31 @@
              <div class="right-nav">
                 <div class="login-sr">
                    <div class="login-signup">
-                      <ul>
-                         <li><a href="#">Login</a></li>
-                         <li><a class="custom-b" href="#">Sign up</a></li>
-                      </ul>
+                      {% if user.is_authenticated %}
+                        <ul>
+                           <li><a href="#">{{ request.user.username }}</a></li>
+                           <li><a class="custom-b" href="{% url 'logout' %}">Logout</a></li>
+                        </ul>
+                           {% else %}
+                           <ul>
+                           <li><a href="{% url 'login' %}">Login</a></li>
+                           <li><a class="custom-b" href="{% url 'register' %}">Sign up</a></li>
+                        </ul> 
+                         {% endif %}
                    </div>
                 </div>
                 <div class="help-r hidden-xs">
                    <div class="help-box">
                       <ul>
-                         <li> <a data-toggle="modal" data-target="#myModal" href="#"> <span>Change</span> <img src="images/flag.png" alt="" /> </a> </li>
-                         <li> <a href="#"><img class="h-i" src="images/help-icon.png" alt="" /> Help </a> </li>
+                         <li> <a href="{% url 'blogs' %}"> <span>Blog</span> </a> </li>
                       </ul>
                    </div>
                 </div>
                 <div class="nav-b hidden-xs">
                    <div class="nav-box">
                       <ul>
-                         <li><a href="{% url 'how' %}">How it works</a></li>
-                         <li><a href="{% url 'about' %}">Chamb for Business</a></li>
+                         <li><a href="{% url 'products' %}">Products</a></li>
+                         <li><a href="{% url 'index' %}">Home</a></li>
                       </ul>
                    </div>
                 </div>
@@ -52,28 +58,5 @@
     <!--/.container-fluid --> 
  </nav>
 </header>
-<!-- Modal -->
-<div class="modal fade lug" id="myModal" role="dialog">
-    <div class="modal-dialog">
-       <!-- Modal content-->
-       <div class="modal-content">
-          <div class="modal-header">
-             <button type="button" class="close" data-dismiss="modal">&times;</button>
-             <h4 class="modal-title">Change</h4>
-          </div>
-          <div class="modal-body">
-             <ul>
-                <li><a href="#"><img src="images/flag-up-1.png" alt="" /> United States</a></li>
-                <li><a href="#"><img src="images/flag-up-2.png" alt="" /> France </a></li>
-             </ul>
-          </div>
-       </div>
-    </div>
- </div>
- <div id="sidebar" class="top-nav">
-    <ul id="sidebar-nav" class="sidebar-nav">
-       <li><a href="#">Help</a></li>
-       <li><a href="howitworks.html">How it works</a></li>
-       <li><a href="#">chamb for Business</a></li>
-    </ul>
- </div>
+
+ 
